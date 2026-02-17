@@ -68,7 +68,7 @@ export const CALCULATOR_CONTENT = {
 
 // PROOF SECTION
 export const PROOF_CONTENT = {
-  heading: 'Cryptographic Proof. Not "Trust Us."',
+  heading: 'Verifiable Cryptographic Evidence',
   description: "Every incident generates a timestamped evidence bundle. You verify independently. We can't fake it.",
   features: [
     {
@@ -78,7 +78,7 @@ export const PROOF_CONTENT = {
     },
     {
       title: 'Immutable Evidence',
-      detail: 'Every check produces a JSON bundle with OpenTimestamps proof. Verify on-chain yourself.',
+      detail: 'Every check produces a signed JSON bundle with a Bitcoin-anchored proof. Download and independently verify using OpenTimestamps.',
       technical: 'Bitcoin blockchain anchoring via OpenTimestamps',
     },
     {
@@ -275,13 +275,47 @@ export const COMPETITOR_SLAS = {
 
 // EVIDENCE BUNDLE EXAMPLE
 export const EVIDENCE_EXAMPLE = {
-  incident_id: 'inc_2026021002471234',
-  timestamp: '2026-02-10T07:47:22.000Z',
-  endpoint: 'https://api.example.com/payment',
-  regions: ['us-east-1', 'eu-west-1', 'ap-southeast-2'],
-  consensus: '2/3',
-  verification: 'https://opentimestamps.org/verify?hash=abc123...',
-  evidence_url: 'https://evidence.trustmonitor.dev/2026/02/inc_2026021002471234.json',
+  incident: {
+    incident_id: 'inc_2026021002471234',
+    detected_at: '2026-02-10T07:47:22.000Z',
+    endpoint: 'https://api.example.com/payment',
+    status: 'down', // future-proof: could also be 'recovered'
+    regions: ['us-east-1', 'eu-west-1', 'ap-southeast-2'],
+    consensus: {
+
+      required: 2,
+      total: 3,
+    },
+  },
+
+  proof: {
+    hash: {
+      algorithm: 'sha256',
+      value: 'abc123...',
+    },
+
+    bitcoin_anchor: {
+      block_height: 834921,
+      anchored_at: '2026-02-10T02:47:11Z',
+      ots_proof_file: 'incident-2026-02-10-0247.ots',
+    },
+
+    signature: {
+      algorithm: 'ed25519',
+      value: 'base64-signature-string...',
+      public_key_id: 'trustmonitor-prod-2026-q1',
+    },
+  },
+
+  meta : {
+    generated_at: '2026-02-10T07:47:25.112Z',
+    service_version: '1.3.2',
+  },
+
+  distribution: {
+    evidence_url: 'https://evidence.trustmonitor.dev/2026/02/inc_2026021002471234.json',
+    ots_proof_url: 'https://evidence.trustmonitor.dev/2026/02/inc_2026021002471234.ots',
+  },
 } as const;
 
 // SEO / META
