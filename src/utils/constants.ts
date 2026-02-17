@@ -14,7 +14,7 @@ export const HERO_CONTENT = {
   timestamp: 'February 10, 2026 — 2:47 AM',
   incident: 'Your Payment Gateway\nWas Down for 22 Minutes.',
   pain: [
-    'Your monitoring tool didn't alert you.',
+    "Your monitoring tool didn't alert you.",
     'You lost $43,000 in transactions.',
     'Their liability? $0.',
   ],
@@ -28,7 +28,7 @@ export const HERO_CONTENT = {
 // PAIN SECTION ($0 Liability)
 export const PAIN_CONTENT = {
   heading: 'Their Contract. Your Risk.',
-  subheading: 'Every monitoring vendor limits liability to zero. Here's what that means for you:',
+  subheading: "Every monitoring vendor limits liability to zero. Here's what that means for you:",
   scenarios: [
     {
       vendor: 'Datadog',
@@ -69,7 +69,7 @@ export const CALCULATOR_CONTENT = {
 // PROOF SECTION
 export const PROOF_CONTENT = {
   heading: 'Cryptographic Proof. Not "Trust Us."',
-  description: 'Every incident generates a timestamped evidence bundle. You verify independently. We can't fake it.',
+  description: "Every incident generates a timestamped evidence bundle. You verify independently. We can't fake it.",
   features: [
     {
       title: 'Multi-Region Verification',
@@ -149,6 +149,7 @@ export const GUARANTEE_CONTENT = {
         '30-day evidence retention',
         '$200 per verified incident',
       ],
+      badge: undefined, // add this
     },
     {
       name: 'Professional',
@@ -185,6 +186,7 @@ export const GUARANTEE_CONTENT = {
         'Contractual SLA guarantees',
         'Quarterly legal review',
       ],
+      badge: undefined, // add this
     },
   ],
   foundingDiscount: {
