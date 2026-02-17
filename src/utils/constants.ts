@@ -255,7 +255,7 @@ export const FOOTER_CONTENT = {
 export const COMPETITOR_SLAS = {
   datadog: {
     name: 'Datadog',
-    url: 'https://www.datadoghq.com/legal/sla/',
+    url: 'https://www.datadoghq.com/legal/msa/',
     liabilityClause: 'In no event shall Datadog be liable for lost profits or business opportunities.',
     maxCredit: 10, // 10% service credit for <99% uptime
   },

@@ -34,3 +34,9 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+public/evidence/trustmonitor-prod-2026-q1.key
+
+# In .gitignore
+/public/evidence/*.key
+/public/evidence/*.pub
