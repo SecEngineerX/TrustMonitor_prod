@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { SEO } from '@/utils/constants';
 import '@/styles/globals.css';
+import '@/styles/typography.css';
+import '@/styles/variables.css'; 
 
 export const metadata: Metadata = {
   title: SEO.title,
