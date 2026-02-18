@@ -7,23 +7,21 @@ import path from 'path';
 import crypto from 'crypto';
 
 export async function GET(_req: NextRequest): Promise<NextResponse> {
-  const filePath = path.join(process.cwd(), 'public', 'sla_preview.pdf');
+  // File now lives in this folder
+  const filePath = path.join(process.cwd(), 'src', 'app', 'download-sla', 'sla-preview.pdf');
 
   try {
-    // Read the file
     const fileBuffer = await readFile(filePath);
 
-    // Compute SHA256 for verification
+    // Brutal verification hash
     const hash = crypto.createHash('sha256').update(fileBuffer).digest('hex');
 
-    // Return file with business-grade headers
     return new NextResponse(fileBuffer, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Length': fileBuffer.length.toString(),
-        'Content-Disposition':
-          'attachment; filename="TrustMonitor-Service-Level-Agreement.pdf"',
+        'Content-Disposition': 'attachment; filename="TrustMonitor-Service-Level-Agreement.pdf"',
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
         'Pragma': 'no-cache',
         'Expires': '0',
@@ -31,7 +29,7 @@ export async function GET(_req: NextRequest): Promise<NextResponse> {
         'X-Frame-Options': 'DENY',
         'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'",
         'Accept-Ranges': 'none',
-        'TrustMonitor-Document-SHA256': hash, // Verification header
+        'TrustMonitor-Document-SHA256': hash, // For client verification
       },
     });
   } catch (err: any) {
