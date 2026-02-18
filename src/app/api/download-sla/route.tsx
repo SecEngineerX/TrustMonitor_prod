@@ -8,7 +8,7 @@ import crypto from 'crypto';
 
 export async function GET(_req: NextRequest): Promise<NextResponse> {
   // File now lives in this folder
-  const filePath = path.join(process.cwd(), 'src', 'app', 'download-sla', 'sla-preview.pdf');
+  const filePath = path.join(process.cwd(), 'src', 'app', 'api', 'download-sla', 'sla-preview.pdf');
 
   try {
     const fileBuffer = await readFile(filePath);
@@ -48,3 +48,4 @@ export async function GET(_req: NextRequest): Promise<NextResponse> {
     );
   }
 }
+
