@@ -1,4 +1,6 @@
 'use client';
+import '@/styles/globals.css'; // or relative
+import '@/styles/variables.css';
 import React, { useEffect, useState } from 'react';
 import Container from '../shared/Container';
 import { PROOF_CONTENT } from '@/utils/constants';

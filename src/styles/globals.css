@@ -279,3 +279,11 @@ button {
     margin-bottom: var(--space-6);
   }
 }
+
+
+
+/* Force inclusion in prod bundle */
+body::after {
+    content: "globals-loaded";
+    display: none;
+}
