@@ -55,3 +55,16 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+// next.config.js
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/sla-preview.pdf',
+        destination: '/download-sla',
+        permanent: true,
+      },
+    ];
+  },
+};
